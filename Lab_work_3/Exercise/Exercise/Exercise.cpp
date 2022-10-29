@@ -148,6 +148,7 @@ void N_5()
 {
     struct time
     {
+        int days;
         int hours;
         int minutes;
         int seconds;
@@ -159,12 +160,14 @@ void N_5()
     cout << "Введите второе время в формате (Часы:Минуты:Секунды): "; cin >> clock_B.hours >> dummychar >> clock_B.minutes >> dummychar >> clock_B.seconds;
     long totalsecs = (clock_A.hours * 3600 + clock_A.minutes * 60 + clock_A.seconds) + (clock_B.hours * 3600 + clock_B.minutes * 60 + clock_B.seconds);
     // << "Всего секунд: " << totalsecs;
+    clock_ansver.days = totalsecs / 86400;
+    totalsecs = totalsecs - clock_ansver.days * 86400;
     clock_ansver.hours = totalsecs / 3600;
     totalsecs = totalsecs - clock_ansver.hours * 3600;
     clock_ansver.minutes = totalsecs / 60;
     clock_ansver.seconds = totalsecs- clock_ansver.minutes * 60;
     //cout << "\nСумма времени: " << clock_ansver.hours << ":" << clock_ansver.minutes << ":" << clock_ansver.seconds;
-    printf("\nСумма времени: %d:%02d:%02d", clock_ansver.hours, clock_ansver.minutes, clock_ansver.seconds);
+    printf("\nСумма времени: %d:%02d:%02d:%02d", clock_ansver.days, clock_ansver.hours, clock_ansver.minutes, clock_ansver.seconds);
     cout << "\n\n------------------------------------------------------\n";
 }
 
